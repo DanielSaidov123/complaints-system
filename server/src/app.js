@@ -3,8 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { connectDB } from "./db/connect.js";
 import Complaints from "./routes/complaints.routes.js";
-import AuthRoutes from "./routes/auth.routes.js"; // <--- חדש
-import { requireAdminAuth } from "./middlewares/requireAdminAuth.js"; // <--- חדש
+import AuthRoutes from "./routes/auth.routes.js"; 
 
 dotenv.config();
 const app = express();
