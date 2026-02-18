@@ -1,4 +1,3 @@
-// routes/todos.js
 import express from "express";
 import { createComplaint, getComplaint } from "../controllers/complaints.controller.js";
 import { requireAdminAuth } from "../middlewares/requireAdminAuth.js";
