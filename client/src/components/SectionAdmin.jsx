@@ -6,7 +6,6 @@ export const SectionAdmin = () => {
   const navigate = useNavigate();
 
   async function login(e) {
-    console.log(e.target.value)
     e.preventDefault();
 
     const response = await fetch("http://localhost:5000/api/auth/login", {
