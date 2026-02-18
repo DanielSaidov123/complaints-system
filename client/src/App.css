@@ -20,3 +20,13 @@ nav{
  border: 2px solid ;
  width: 40%;
 }
+
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.spase{
+ margin: 1rem;
+}
