@@ -1,13 +1,20 @@
-import { createContext, useState } from "react";  
-import { getAll } from "../api/complaintsApi";
+import { createContext, useState, useEffect } from "react";  
 
 export const ComplaintList = createContext();
 
-export  function ComplaintListProvider({ children }) {
-  const [token, settoken] = useState("");
-  const [listComp , setlistComp] = useState([])
+export function ComplaintListProvider({ children }) {
+  const [token, settoken] = useState(() => {
+    return localStorage.getItem("token") || "";
+  });
+  
+  const [listComp, setlistComp] = useState([]);
+
+  // useEffect(() => {
+  //   localStorage.setItem("token", token);
+  // }, [token]);
+
   return (
-    <ComplaintList.Provider value={{ token, settoken ,listComp ,setlistComp}}>
+    <ComplaintList.Provider value={{ token, settoken, listComp, setlistComp }}>
       {children}
     </ComplaintList.Provider>
   );

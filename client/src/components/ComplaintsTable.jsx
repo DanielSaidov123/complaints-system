@@ -24,32 +24,26 @@ export const ComplaintsTable = () => {
 
   return (
     <>
-      <table>
-      <thead>
-        <tr>
-          <th>img</th>
-          <th>name</th>
-          <th>attacksCount</th>
-          <th>organization</th>
-          <th>summary</th>
-          <th>status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((s,i) => (
-          <tr key={i}> 
-            <td>
-              <img src={s.imageUrl ? s.imageUrl:"https://picsum.photos/400/400?random=3"} alt="dsa" />
-            </td>
-            <td>{s.name}</td>
-            <td>{s.attacksCount}</td>
-            <td>{s.organization}</td>
-            <td>{s.status}</td>
-            <td>{s.relationToIsraelSummary}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Message</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {listComp.map((complaint, i) => (
+      <tr key={i}>
+        <td>{complaint.category}</td>
+        <td>{complaint.message}</td>
+        <td>{complaint.date}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
     </>
   );
 };
