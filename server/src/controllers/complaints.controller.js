@@ -3,7 +3,10 @@ import { getTodosCollection } from "../db/connect.js";
 export async function createComplaint(req, res) {
   const collection = getTodosCollection();
   const complaint = req.body;
-  const result = await collection.insertOne(complaint);
+  const d = new Date
+  const mes = {...complaint ,  date:d.toLocaleDateString('he-IL') }
+  console.log(mes)
+  const result = await collection.insertOne(mes);
   res.send({ insertedId: result.insertedId });
 }
 
