@@ -14,7 +14,7 @@ export const ComplaintForm = () => {
         if (res.ok) {
             alert( "תלונה נשמרה בהצלחה")
         } else{
-            alert("נסה שוב  הייתה בעיה ")
+             navigate("/error")
         }
     }
   return (
