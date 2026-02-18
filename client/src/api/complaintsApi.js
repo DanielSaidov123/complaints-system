@@ -1,12 +1,3 @@
-export const loginAdmin = async (credentials) => {
-  const response = await fetch("/api/login", {
-    method: "POST",
-    body: JSON.stringify(credentials),
-    headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
 export async function createComplain(category,message) {
   const response = await fetch("http://localhost:5000/api/complaints", {
     method: "POST",
@@ -16,4 +7,13 @@ export async function createComplain(category,message) {
     body: JSON.stringify({ category ,message}),
   });
   return response
+}
+
+export async function getAll(token) {
+ const response = await fetch('http://localhost:5000/api/complaints', {
+  headers: {
+    'Authorization': `Bearer ${token}`,
+  }
+});
+return await response.json()
 }

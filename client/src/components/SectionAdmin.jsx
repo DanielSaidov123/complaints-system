@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router";
+import { ComplaintList } from "../Contexts/Context";
 
 export const SectionAdmin = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const { token, settoken } = useContext(ComplaintList);
   async function login(e) {
     e.preventDefault();
 
@@ -17,11 +18,12 @@ export const SectionAdmin = () => {
     });
 
     const data = await response.json();
-    console.log(data)
+
     if (data.success) {
-      navigate("/da");  
+      settoken(data.token);
+      navigate("/da");
     } else {
-      navigate("/error"); 
+      navigate("/error");
     }
   }
 
@@ -31,10 +33,12 @@ export const SectionAdmin = () => {
         <h1>מפקד תלונות</h1>
         <form action="password" onSubmit={login}>
           <label htmlFor="password">passeord:</label>
-          <input type="password"  onChange={(e)=>setPassword(e.target.value)}/>
-        <button  type="submit">כניסה לאדמין</button>
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">כניסה לאדמין</button>
         </form>
-
       </section>
     </div>
   );
