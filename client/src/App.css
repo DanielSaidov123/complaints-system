@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    background-color: rgb(177, 177, 177);
+    border-bottom: rgb(80, 80, 80) solid;
+}
+
+.dad{
+    display: flex;
+    justify-content: center;
+}
+
+.section{
+ text-align: center;
+ border: 2px solid ;
+ width: 40%;
+}
